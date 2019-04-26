@@ -66,8 +66,12 @@ def app(teams_roster):
         print("\nthat's not a valid option")
         exit()
 
-    pick_team = int(input('Enter an option:  '))
-
+    try:
+        pick_team = int(input('Enter an option:  '))
+    except ValueError:
+        print("\nSorry that's not an option...")
+        exit()
+        
     if pick_team == 1:
         print('''
 Team: Panthers Stats
@@ -93,7 +97,7 @@ Team: Warriors Stats
         print('Players: {}'.format((", ").join(teams_roster['Warriors'])))
 
     else:
-        print("That is not a valid option")
+        print("\nThat is not a valid option")
         exit()
 
 if __name__ == "__main__":
