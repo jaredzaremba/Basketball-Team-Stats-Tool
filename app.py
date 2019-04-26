@@ -45,7 +45,11 @@ def app(teams_roster):
     1) Display Team Stats
     2) Quit ''')
 
-    team_names = int(input('\nEnter an option (1 or 2):  '))
+    try:
+        team_names = int(input('\nEnter an option (1 or 2):  '))
+    except ValueError:
+        print("\nSorry that's not an option...")
+        exit()
 
     if team_names == 1:
         print("")
@@ -59,7 +63,7 @@ def app(teams_roster):
         exit()
 
     else:
-        print("that's not a valid option")
+        print("\nthat's not a valid option")
         exit()
 
     pick_team = int(input('Enter an option:  '))
@@ -69,8 +73,8 @@ def app(teams_roster):
 Team: Panthers Stats
 -----------------------------''')
         print('Total Players: {}'.format(len(teams_roster['Panthers'])))
-        print("")
-        print('Players: {}'.format(teams_roster['Panthers']))
+        print("") 
+        print('Players: {}'.format((", ").join(teams_roster['Panthers'])))
 
     elif pick_team == 2:
         print('''
@@ -78,7 +82,7 @@ Team: Bandits Stats
 -----------------------------''')
         print('Total Players: {}'.format(len(teams_roster['Bandits'])))
         print("")
-        print('Players: {}'.format(teams_roster['Bandits']))
+        print('Players: {}'.format((", ").join(teams_roster['Bandits'])))
 
     elif pick_team == 3:
         print('''
@@ -86,7 +90,7 @@ Team: Warriors Stats
 -----------------------------''')
         print('Total Players: {}'.format(len(teams_roster['Warriors'])))
         print("")
-        print('Players: {}'.format(teams_roster['Warriors']))
+        print('Players: {}'.format((", ").join(teams_roster['Warriors'])))
 
     else:
         print("That is not a valid option")
